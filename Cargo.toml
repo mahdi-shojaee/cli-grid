@@ -1,6 +1,6 @@
 [package]
 name = "cli-grid"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Mahdi Shojaei <mehdishojaei81@gmail.com>"]
 edition = "2018"
 description = "A small and dependency free crate for formatting the terminal outputs in a column based grid style."

@@ -133,6 +133,6 @@ let expected = format!(
 assert_eq!(grid.to_string(), expected);
 ```
 
-Empty cells and rows can be created by `Cell::new_empty()` and `Row::new_empty()` methods.
+Empty cells and rows can be created by `Cell::new_empty` and `Row::new_empty` methods.
 
-Filled cells and rows can be created by `Cell::new_fill()` and `Row::new_fill()` methods.
+Filled cells and rows can be created by `Cell::new_fill` and `Row::new_fill` methods.
