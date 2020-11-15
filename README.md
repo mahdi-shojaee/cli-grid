@@ -8,9 +8,10 @@ in a column based grid style.
 <----------1---------->                            <-2->
 1: Grid column
 2: Grid padding
-
 ```
+
 Each `Cell` of the grid can span into 1 or more columns.
+
 ```text
 [ Cell with colspan 1 ]     [---------------------]     [---------------------]
 [-------------- Cell with colspan 2 --------------]     [---------------------]
@@ -25,6 +26,7 @@ Vertical alignments of cells are `VAlign::Top`, `VAlign::Middle` and `VAlign::Bo
 
 ```rust
 use cli_grid::*;
+
 let grid = Grid::builder(vec![
     Row::new(vec![
         Cell::new("1".into(), 1),
@@ -42,18 +44,21 @@ let grid = Grid::builder(vec![
 .default_blank_char('.')
 .column_width(15)
 .build();
+
 let expected = format!(
     "{}\n{}\n{}\n",
     "1.............. 1.............. 1..............",
     "2.............................. 1..............",
     "3..............................................",
 );
+
 assert_eq!(grid.to_string(), expected);
 ```
 
-Multi line `Cell`s also is supported:
+Multiline `Cell`s also is supported:
 ```rust
 use cli_grid::*;
+
 let grid = Grid::builder(vec![
     Row::new(vec![
         Cell::new("1".into(), 1),
@@ -71,6 +76,7 @@ let grid = Grid::builder(vec![
 .default_blank_char('.')
 .column_width(15)
 .build();
+
 let expected = format!(
     "{}\n{}\n{}\n{}\n{}\n",
     "1.............. 1.............. 1..............",
@@ -79,12 +85,14 @@ let expected = format!(
     "2.............................. 1..............",
     "3..............................................",
 );
+
 assert_eq!(grid.to_string(), expected);
 ```
 
 So nested grids also is supported:
 ```rust
 use cli_grid::*;
+
 let nested_grid = Grid::builder(vec![
     Row::new(vec![
         Cell::new("1".into(), 1),
@@ -103,6 +111,7 @@ let nested_grid = Grid::builder(vec![
 .default_blank_char('-')
 .column_width(5)
 .build();
+
 let grid = Grid::builder(vec![
     Row::new(vec![
         Cell::new("2".into(), 2),
@@ -122,6 +131,7 @@ let grid = Grid::builder(vec![
 .default_blank_char('.')
 .column_width(15)
 .build();
+
 let expected = format!(
     "{}\n{}\n{}\n{}\n{}\n",
     "...............2............... .......1.......",
@@ -130,6 +140,7 @@ let expected = format!(
     "............... ..--1-- --1--.. ...............",
     ".......................3.......................",
 );
+
 assert_eq!(grid.to_string(), expected);
 ```
 
